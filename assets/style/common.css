@@ -33,7 +33,7 @@ header {
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    top:0;
+    top:0px;
     z-index: 100;
     
 }
@@ -95,4 +95,15 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
+}
+
+
+/* media query */
+@media screen and (max-width:600px) {
+    .logo-text{
+        display: none;
+    }
+    header{
+        font-size: 0.7rem;
+    }
 }

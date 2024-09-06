@@ -21,5 +21,11 @@ async function fetchProjectRecommendations(keywords) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetchProjectRecommendations('JavaScript');
+    const SavedSkills = getDataLocalStorage('skills')
+    let skills ="";
+    SavedSkills.forEach(element => {
+        skills =`${element.skill}, `;
+        
+    });
+    fetchProjectRecommendations(`${skills}`);
 });

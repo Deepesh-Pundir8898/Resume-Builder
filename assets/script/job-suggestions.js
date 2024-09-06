@@ -1,7 +1,6 @@
 async function fetchAdzunaJobSuggestions(keywords) {
-    const appId = 'c5292b0a'; // Replace with your actual app_id
-    const appKey = 'd34ef202428d9ab7e6604ebc72e602d3'; // Replace with your actual app_key
-
+    const appId = 'c5292b0a'; 
+    const appKey = 'd34ef202428d9ab7e6604ebc72e602d3'; 
     try {
         const response = await fetch(`https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=${appId}&app_key=${appKey}&results_per_page=10&what=${keywords}`);
         const data = await response.json();
@@ -31,5 +30,11 @@ async function fetchAdzunaJobSuggestions(keywords) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetchAdzunaJobSuggestions('Software Engineer');
+    const SavedSkills = getDataLocalStorage('skills')
+    let skills ="";
+    SavedSkills.forEach(element => {
+        skills +=`${element.skill}, `;
+        
+    });
+    fetchAdzunaJobSuggestions(`${skills}`);
 });

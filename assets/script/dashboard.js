@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Load resumes on dashboard
     loadSavedResumes();
     
-    // Fetch job suggestions and project recommendations based on resumes
     // loadJobSuggestions();
     // loadProjectRecommendations();
 });
@@ -165,24 +164,7 @@ function loadSavedResumes() {
     })
 
 
-    // skills.innerText = localStorage.getItem('skills')
-
-
-    // savedResumes.forEach(resume => {
-    //     const resumeDiv = document.createElement('div');
-    //     resumeDiv.classList.add('resume-item');
-
-    //     // Display basic resume details
-    //     resumeDiv.innerHTML = `
-    //         <h4>${resume.name}</h4>
-    //         <p>Email: ${resume.email}</p>
-    //         <p>Skills: ${resume.skills.join(', ')}</p>
-    //         <button onclick="showJobSuggestions('${resume.skills.join(', ')}')">Show Job Suggestions</button>
-    //         <button onclick="showProjectRecommendations('${resume.skills.join(', ')}')">Show Project Recommendations</button>
-    //     `;
-
-    //     resumeContainer.appendChild(resumeDiv);
-    // });
+    
 }
 function getDataLocalStorage(key){
     return JSON.parse(localStorage.getItem(key));
