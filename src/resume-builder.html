@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder - Interview Ready With AI</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="../assets/style/common.css">
+    <link rel="stylesheet" href="../assets/style/resume-builder.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.min.js"></script>
+    <!-- Include jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../assets/images/DALL·E 2024-09-02 15.00.19 - A sleek and modern logo design for a platform called 'Interview Ready With AI.' The logo should feature a magnifying glass symbol representing job sea.webp" alt="">
+            <h1>Interview Ready With AI</h1>
+        </div>
+        
+        <nav>
+            <a href="dashboard.html" class="dashboard">Dashboard</a>
+            <a href="resume-builder.html">Build Your Resume</a>
+            <a href="login.html" id="signUp">Sign up</a>
+        </nav>
+    </header>
+
+    <!-- <section id="template-selector">
+        <h2>Select a Resume Template</h2>
+        <div id="template-gallery"></div>
+    </section> -->
+
+    <section id="resume-editor" >
+        <h1>Resume Builder</h1>
+
+        <!-- <button id="download-resume">Download PDF</button> -->
+    </section>
+        
+    <main class="main">
+        <section id="resume-editor" class="container">
+            <h1>Resume Builder</h1>
+            <form id="cv-form" class="cv-form">
+                <div class="cv-form-row-title">
+                    <h3>Personal Information</h3>
+                </div>
+                <div class="cv-form-row cols-3">
+                    <div class="form-elem">
+                        <label for="firstname" class="form-label">First Name</label>
+                        <input type="text" id="firstname" class="form-control firstname">
+                    </div>
+                    <div class="form-elem">
+                        <label for="middlename" class="form-label">Middle Name</label>
+                        <input type="text" id="middlename" class="form-control middlename">
+                    </div>
+                    <div class="form-elem">
+                        <label for="lastname" class="form-label">Last Name</label>
+                        <input type="text" id="lastname" class="form-control lastname">
+                    </div>
+                </div>
+                <div class="cv-form-row cols-2">
+                    <div class="form-elem">
+                        <label for="designation" class="form-label">Designation</label>
+                        <input type="text" id="designation" class="form-control designation">
+                    </div>
+                    <div class="form-elem">
+                        <label for="phoneno" class="form-label">Phone Number</label>
+                        <input type="text" id="phoneno" class="form-control phoneno">
+                    </div>
+                </div>
+                <div class="cv-form-row cols-2">
+                    <div class="form-elem">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" id="email" class="form-control email">
+                    </div>
+                    <div class="form-elem">
+                        <label for="address" class="form-label">Address</label>
+                        <textarea id="address" class="form-control address"></textarea>
+                    </div>
+                </div>
+                <div class="cv-form-row">
+                    <div class="form-elem">
+                        <label for="summary" class="form-label">Summary</label>
+                        <textarea id="summary" class="form-control summary"></textarea>
+                    </div>
+                </div>
+
+                <div class="cv-form-row-title">
+                    <h3>Skills</h3>
+                </div>
+                <div class="cv-form-row repeater">
+                    <div class="form-elem ">
+                        <label for="skill" class="form-label">Skill</label>
+                        <input type="text" id="skill" class="form-control skill ">
+                        <div id="skills_dsp" class="preview-blk" style="display: none;"></div>
+
+                    </div>
+
+                    
+
+                    <button type="button" class="repeater-add-btn" onclick="addSkill()">+</button>
+                </div>
+
+                <div class="cv-form-row-title">
+                    <h3>Achievements</h3>
+                </div>
+                <div class="cv-form-row repeate achievements">
+                    <div class="form-elem">
+                        <label for="achieve_title" class="form-label">Title</label>
+                        <input type="text" id="achieve_title" class="form-control achieve_title">
+                        
+                    </div>
+                    <div class="form-elem">
+                        <label for="achieve_description" class="form-label">Description</label>
+                        <textarea id="achieve_description" class="form-control achieve_description"></textarea>
+                    </div>
+
+                    
+                    <button type="button" class="repeater-add-btn" onclick="addAchievement()">+</button>
+                    <div id="achievements_dsp" class="preview-blk achievements"></div>
+
+                </div>
+
+                <div class="cv-form-row-title">
+                    <h3>Experience</h3>
+                </div>
+                <div class="cv-form-row repeater">
+                    <div class="experience-container experiences">
+                        <div class="form-elem">
+                            <label for="exp_title" class="form-label">Title</label>
+                            <input type="text" id="exp_title" class="form-control exp_title">
+                        </div>
+                        <div class="form-elem">
+                            <label for="exp_organization" class="form-label">Organization</label>
+                            <input type="text" id="exp_organization" class="form-control exp_organization">
+                        </div>
+                        <div class="form-elem">
+                            <label for="exp_location" class="form-label">Location</label>
+                            <input type="text" id="exp_location" class="form-control exp_location">
+                        </div>
+                        <div class="form-elem">
+                            <label for="exp_start_date" class="form-label">Start Date</label>
+                            <input type="date" id="exp_start_date" class="form-control exp_start_date">
+                        </div>
+                        <div class="form-elem">
+                            <label for="exp_end_date" class="form-label">End Date</label>
+                            <input type="date" id="exp_end_date" class="form-control exp_end_date">
+                        </div>
+                        <div class="form-elem">
+                            <label for="exp_description" class="form-label">Description</label>
+                            <textarea id="exp_description" class="form-control exp_description"></textarea>
+                        </div>
+                        <button type="button" class="repeater-add-btn" onclick="addExperience()">+</button>
+                    </div>
+                    
+
+                    <div id="experiences_dsp" class="preview-blk experiences"></div>
+
+                </div>
+
+                <div class="cv-form-row-title">
+                    <h3>Education</h3>
+                </div>
+                <div class="cv-form-row repeater educations">
+                    <div class="form-elem">
+                        <label for="edu_school" class="form-label">School/University</label>
+                        <input type="text" id="edu_school" class="form-control edu_school">
+                    </div>
+                    <div class="form-elem">
+                        <label for="edu_degree" class="form-label">Degree</label>
+                        <input type="text" id="edu_degree" class="form-control edu_degree">
+                    </div>
+                    <div class="form-elem">
+                        <label for="edu_city" class="form-label">City</label>
+                        <input type="text" id="edu_city" class="form-control edu_city">
+                    </div>
+                    <div class="form-elem">
+                        <label for="edu_start_date" class="form-label">Start Date</label>
+                        <input type="date" id="edu_start_date" class="form-control edu_start_date">
+                    </div>
+                    <div class="form-elem">
+                        <label for="edu_graduation_date" class="form-label">Graduation Date</label>
+                        <input type="date" id="edu_graduation_date" class="form-control edu_graduation_date">
+                    </div>
+                    <div class="form-elem">
+                        <label for="edu_description" class="form-label">Description</label>
+                        <textarea id="edu_description" class="form-control edu_description"></textarea>
+                    </div>
+                    <button type="button" class="repeater-add-btn" onclick="addEducation()">+</button>
+                </div>
+
+                <div id="educations_dsp" class="preview-blk educations"></div>
+
+                <div class="cv-form-row-title">
+                    <h3>Projects</h3>
+                </div>
+                <div class="cv-form-row repeater projects">
+                    <div class="form-elem">
+                        <label for="proj_title" class="form-label">Title</label>
+                        <input type="text" id="proj_title" class="form-control proj_title">
+                    </div>
+                    <div class="form-elem">
+                        <label for="proj_link" class="form-label">Link</label>
+                        <input type="url" id="proj_link" class="form-control proj_link">
+                    </div>
+                    <div class="form-elem">
+                        <label for="proj_description" class="form-label">Description</label>
+                        <textarea id="proj_description" class="form-control proj_description" ></textarea>
+                    </div>
+                    <button type="button" class="repeater-add-btn" onclick="addProject()">+</button>
+                </div>
+                <div id="projects_dsp" class="preview-blk projects "></div>
+
+                <div class="cv-form-row">
+                    <div class="form-elem">
+                        <label for="image" class="form-label">Profile Image</label>
+                        <input type="file" id="image" class="form-control image" accept="image/*" onchange="previewImage()">
+                    </div>
+                </div>
+
+                <button type="button" class="btn generateCV" onclick="generateCV()">Generate CV</button>
+                <button type="button" class="btn reset" onclick="resetForm()">Reset</button>
+            </form>
+
+            <div id="preview-sc" class="cv-preview">
+                <div class="preview-cnt-l">
+                    <div class="preview-blk-title">
+                        <h3>Resume</h3>
+                    </div>
+                    <div id="image_dsp" class="preview-image">
+                        <img src="../assets/images/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg" alt="Profile Image">
+                    </div>
+                    <span>Name :</span>
+                    <div id="fullname_dsp" class="preview-item resume-field"></div>
+
+                    <span>Designation :</span>
+                    <div id="designation_dsp" class="preview-item resume-field"></div>
+
+                    <span>Phone Number :</span>
+                    <div id="phoneno_dsp" class="preview-item resume-field"></div>
+
+                    <span>Email :</span>
+                    <div id="email_dsp" class="preview-item resume-field"></div>
+
+                    <span>Address :</span>
+                    <div id="address_dsp" class="preview-item resume-field"></div>
+
+                    <span>Summary :</span>
+                    <div id="summary_dsp" class="preview-item resume-field"></div>
+                </div>
+                <div class="preview-cnt-r">
+                    <span>Skills :</span>
+                    <div id="resume_skills_dsp" class="preview-blk resume-field"></div>
+
+                    <span>Achievements :</span>
+                    <div id="resume_achievements_dsp" class="preview-blk resume-field"></div>
+
+                    <span>Experience :</span>
+                    <div id="resume_experiences_dsp" class="preview-blk resume-field"></div>
+
+                    <span>Education :</span>
+                    <div id="resume_educations_dsp" class="preview-blk resume-field"></div>
+
+                    <span>Projects :</span>
+                    <div id="resume_projects_dsp" class="preview-blk resume-field"></div>
+                </div>
+                
+            </div>
+            <div class="download-btns">
+                <button onclick="printCV()">Print CV</button>
+                <button onclick="downloadPDF()">Download CV as PDF</button>
+            </div>
+            
+
+        </section>
+    </main>
+
+
+        
+        
+
+    <footer>
+        <p>&copy; 2024 Interview Ready With AI</p>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="../assets/script/resume-template.js"></script>
+    <script src="../assets/script/common.js"></script>
+
+</body>
+</html>

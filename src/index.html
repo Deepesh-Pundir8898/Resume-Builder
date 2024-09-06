@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Ready With AI</title>
+    <link rel="stylesheet" href="../assets/style/style.css">
+    <link rel="stylesheet" href="../assets/style/common.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../assets/images/DALL·E 2024-09-02 15.00.19 - A sleek and modern logo design for a platform called 'Interview Ready With AI.' The logo should feature a magnifying glass symbol representing job sea.webp" alt="">
+            <h1>Interview Ready With AI</h1>
+        </div>
+        
+        <nav>
+            <a href="dashboard.html" class="dashboard">Dashboard</a>
+            <a href="resume-builder.html">Build Your Resume</a>
+            <a href="login.html" id="signUp">Sign up</a>
+        </nav>
+    </header>
+
+    <section id="intro">
+        <div class="bg-image"></div>
+        <h2>Prepare for Your Interview with AI-Driven Tools</h2>
+        <p>Upload your resume, receive feedback, and get job suggestions tailored to your skills.</p>
+        <a href="resume-builder.html" class="cta-button">Start Building Your Resume</a>
+    </section>
+    <section id="main-features">
+        <h1>Main Features</h1>
+        <div class="features">
+            <img src="../assets/images/andrea-de-santis-zwd435-ewb4-unsplash.jpg" alt="" data-aos="fade-right" >
+            <div class="features-des" data-aos="fade-left" >
+                <h2>AI-Driven Resume Analysis</h2>
+                <p>Upload your resume and get instant feedback to improve it.</p>
+            </div>
+            
+        </div>
+        <div class="features">
+            <img src="../assets/images/the-jopwell-collection-Y4uoL2SIGUQ-unsplash.jpg" alt="" data-aos="fade-right" >
+            <div class="features-des" data-aos="fade-left" >
+                <h2>Job Recommendations</h2>
+                <p>Find jobs that match your skills and experience.</p>
+            </div>
+        </div>
+        <div class="features">
+            <img src="../assets/images/priscilla-du-preez-NjirplnVra8-unsplash.jpg" alt="" data-aos="fade-right" >
+            <div class="features-des" data-aos="fade-left" >
+                <h2>Project Suggestions</h2>
+                <p>Enhance your portfolio with relevant projects.</p>
+            </div>
+        </div>
+        <div class="features">
+            <img src="../assets/images/tim-gouw-bwki71ap-y8-unsplash.jpg" alt="" data-aos="fade-right" >
+            <div class="features-des" data-aos="fade-left" >
+                <h2>Mock Interviews</h2>
+                <p>Practice with AI to improve your interview skills.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="resume-templates">
+        <h1>Resume Templates</h1>
+        <div class="templates slick-carousel">
+            <div><img src="../assets/resume-template-image/283w-GLS7iCH3mUA.webp" alt=""></div>
+            <div><img src="../assets/resume-template-image/5192055.jpg" alt=""></div>
+            <div><img src="../assets/resume-template-image/5224967.jpg" alt=""></div>
+            <div><img src="../assets/resume-template-image/CV-Template-05.jpg" alt=""></div>
+            <div><img src="../assets/resume-template-image/download (1).jfif" alt=""></div>
+            <div><img src="../assets/resume-template-image/download.jfif" alt=""></div>
+            <div><img src="../assets/resume-template-image/download.png" alt=""></div>
+            <div><img src="../assets/resume-template-image/images (1).jfif" alt=""></div>
+            <div><img src="../assets/resume-template-image/images.jfif" alt=""></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Interview Ready With AI</p>
+    </footer>
+
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+    AOS.init();
+    </script>
+
+    <script type="text/javascript">
+        $(".slick-carousel").slick({
+        speed: 5000,
+        autoplay: true,
+        autoplaySpeed: 0,
+        cssEase: 'linear',
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        infinite: true,
+        swipeToSlide: true,
+        centerMode: true,
+        focusOnSelect: true,
+        responsive: [
+                {
+                breakpoint: 750,
+                settings: {
+                    slidesToShow: 3,
+                }
+                },
+                {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 2,
+                }
+                }
+            ]});
+    </script>
+    <script src="../assets/script/common.js"></script>
+</body>
+</html>

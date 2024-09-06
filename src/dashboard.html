@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Interview Ready With AI</title>
+    <link rel="stylesheet" href="../assets/style/common.css">
+    <link rel="stylesheet" href="../assets/style/dashboard.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../assets/images/DALL·E 2024-09-02 15.00.19 - A sleek and modern logo design for a platform called 'Interview Ready With AI.' The logo should feature a magnifying glass symbol representing job sea.webp" alt="">
+            <h1>Interview Ready With AI</h1>
+        </div>
+        
+        <nav>
+            <a href="dashboard.html" class="dashboard">Dashboard</a>
+            <a href="resume-builder.html">Build Your Resume</a>
+            <a href="login.html" id="signUp">Sign up</a>
+        </nav>
+    </header>
+
+    <section id="dashboard">
+        <h2>Welcome, <span id="username"></span></h2>
+        <div id="saved-resumes-container">
+            <h3>Saved Resumes</h3>
+            <div id="saved-resumes">
+
+                <div id="preview-sc" class="cv-preview">
+                    <div class="preview-cnt-l">
+                        <div class="preview-blk-title">
+                            <h3>Resume</h3>
+                        </div>
+                        <div id="image_dsp" class="preview-image">
+                            <img src="../assets/images/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg" alt="Profile Image" id="profileImageDisplay">
+                        </div>
+                        <span>Name :</span>
+                        <div id="fullname_dsp" class="preview-item resume-field"></div>
+    
+                        <span>Designation :</span>
+                        <div id="designation_dsp" class="preview-item resume-field"></div>
+    
+                        <span>Phone Number :</span>
+                        <div id="phoneno_dsp" class="preview-item resume-field"></div>
+    
+                        <span>Email :</span>
+                        <div id="email_dsp" class="preview-item resume-field"></div>
+    
+                        <span>Address :</span>
+                        <div id="address_dsp" class="preview-item resume-field"></div>
+    
+                        <span>Summary :</span>
+                        <div id="summary_dsp" class="preview-item resume-field"></div>
+                    </div>
+                    <div class="preview-cnt-r">
+                        <span>Skills :</span>
+                        <div id="resume_skills_dsp" class="preview-blk resume-field"></div>
+    
+                        <span>Achievements :</span>
+                        <div id="resume_achievements_dsp" class="preview-blk resume-field"></div>
+    
+                        <span>Experience :</span>
+                        <div id="resume_experiences_dsp" class="preview-blk resume-field"></div>
+    
+                        <span>Education :</span>
+                        <div id="resume_educations_dsp" class="preview-blk resume-field"></div>
+    
+                        <span>Projects :</span>
+                        <div id="resume_projects_dsp" class="preview-blk resume-field"></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div id="job-suggestions-container">
+            <h3>Job Suggestions</h3>
+            <div id="job-suggestions">
+                <!-- Job suggestions will be displayed here -->
+            </div>
+        </div>
+        <div id="project-recommendations-container">
+            <h3>Project Recommendations</h3>
+            <div id="project-recommendations">
+                <!-- Project recommendations will be displayed here -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Interview Ready With AI</p>
+    </footer>
+
+    <script src="../assets/script/job-suggestions.js"></script>
+    <script src="../assets/script/project-recommendations.js"></script>
+    <script src="../assets/script/dashboard.js"></script>
+    <script src="../assets/script/common.js"></script>
+</body>
+</html>
